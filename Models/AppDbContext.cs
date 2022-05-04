@@ -10,6 +10,7 @@ namespace BurgerShop.Models
         }
         public DbSet<Burger> Burgers { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet <ShoppingCartItem> ShoppingCartItems { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
