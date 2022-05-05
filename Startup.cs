@@ -31,6 +31,9 @@ namespace BurgerShop
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddRazorPages();
             services.AddControllersWithViews();
+            services.AddScoped<ShoppingCart>(sp => ShoppingCart.GetCart(sp));
+            services.AddHttpContextAccessor();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,6 +52,7 @@ namespace BurgerShop
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseSession();
 
             app.UseRouting();
 
